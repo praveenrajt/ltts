@@ -5,13 +5,13 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 3.0.1, rails Version: 6.1.7
 
 * System dependencies
 
 * Configuration
 
-* Database creation
+* Database creation: used sqlite3 rails db:migrate
 
 * Database initialization
 
