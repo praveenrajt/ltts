@@ -1,0 +1,46 @@
+<div class="mx-auto my-8 px-4">
+  <div class="flex mb-2">
+    <h1 class='text-center'>Users</h1>
+  </div>
+  <% if @users.present? %>
+  <div class="bg-white flex flex-col items-center justify-between p-8 lg:flex-row">
+      <div class="flex-1 text-end">
+        <%= link_to 'New User', new_user_path, class: "btn btn-primary" %>
+      </div>
+  </div>
+    <div class="bg-white rounded shadow table-responsive">
+      <table class="table table-fixed break-words">
+        <thead>
+        <tr>
+          <th class="w-10 py-6 px-4 text-left"><%= sort_link(@query, :first_name,) %></th>
+          <th class="w-10 py-6 px-4 text-left"><%= sort_link(@query, :last_name,) %></th>
+          <th class="w-10 py-6 px-4 text-left"><%= sort_link(@query, :email_name,) %></th>
+          <th class="w-10 py-6 px-4 text-left"><%= sort_link(@query, :active,) %></th>
+          <th class="w-10 py-6 px-4 text-left">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @users.each do |user| %>
+          <tr class="group border-t border-gray-400 hover:bg-gray-100">
+            <td class="p-4 py-5 text-left text-gray-700"><%= user.first_name %></td>
+            <td class="p-4 py-5 text-left text-gray-700"><%= user.last_name %></td>
+            <td class="p-4 py-5 text-left text-gray-700"><%= user.email %></td>
+            <td class="p-4 py-5 text-left text-gray-700"><%= user.active %></td>
+            <td class="p-4 py-5 uppercase text-left text-gray-700 px-0">
+              <%= link_to "Edit", edit_user_path(user) %> |
+              <%= link_to 'Delete', user_path(user), method: :delete, data: {remote: true, confirm: "Are you sure?"} %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <div class="bg-white flex flex-col items-center justify-between p-8 lg:flex-row">
+      <div class="flex-1 text-center">
+        <%= link_to 'New User', new_user_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

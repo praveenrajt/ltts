@@ -1,0 +1,17 @@
+<div class="content">
+  <div class="text-center">
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <% if key == "notice" %>
+          <div class="alert alert-success alert-dismissible fade show">
+            <%= value %>
+          </div>
+        <% else %>
+            <div class="alert alert-danger alert-dismissible fade show">
+              <%= value %>
+            </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
